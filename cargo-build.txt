@@ -1,0 +1,18 @@
+   Compiling tower-h2-tokio-run v0.1.0 (file:///Users/nickplatt/code/github/caipre/tower-h2-tokio-run)
+error[E0599]: no method named `map_err` found for type `tower_h2::server::Connection<tokio::net::TcpStream, FooNewService, tokio::reactor::Handle, RespBody, ()>` in the current scope
+  --> src/main.rs:91:18
+   |
+91 |                 .map_err(|err| error!("h2 error: {:?}", err))
+   |                  ^^^^^^^
+   |
+   = note: the method `map_err` exists but the following trait bounds were not satisfied:
+           `tower_h2::server::Connection<tokio::net::TcpStream, FooNewService, tokio::reactor::Handle, RespBody, ()> : futures::Future`
+           `&mut tower_h2::server::Connection<tokio::net::TcpStream, FooNewService, tokio::reactor::Handle, RespBody, ()> : futures::Stream`
+           `&mut tower_h2::server::Connection<tokio::net::TcpStream, FooNewService, tokio::reactor::Handle, RespBody, ()> : futures::Future`
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0599`.
+error: Could not compile `tower-h2-tokio-run`.
+
+To learn more, run the command again with --verbose.
