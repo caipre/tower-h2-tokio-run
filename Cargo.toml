@@ -1,0 +1,14 @@
+[package]
+name = "tower-h2-tokio-run"
+version = "0.1.0"
+authors = ["Nick Platt <platt.nicholas@gmail.com>"]
+
+[dependencies]
+bytes = "0.4.9"
+futures = "0.1.23"
+http = "0.1.10"
+tokio = "0.1.7"
+tower-h2 = { git = "https://github.com/tower-rs/tower-h2" }
+tower-service = { git = "https://github.com/tower-rs/tower" }
+h2 = "0.1.12"
+log = "0.4.4"
