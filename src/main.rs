@@ -13,7 +13,7 @@ use futures::*;
 use h2::server::Builder;
 use http::{Request, Response};
 use tokio::net::TcpListener;
-use tokio::reactor::Handle;
+use tokio::executor::DefaultExecutor;
 use tower_h2::{Body, RecvBody, Server};
 use tower_service::{NewService, Service};
 
@@ -82,7 +82,7 @@ impl NewService for FooNewService {
 }
 
 fn main() {
-    let h2 = Server::new(FooNewService, Builder::default(), Handle::default());
+    let h2 = Server::new(FooNewService, Builder::default(), DefaultExecutor::current());
     let addr = "127.0.0.1:5050".parse().unwrap();
     let bind = TcpListener::bind(&addr).unwrap();
     let fut = bind.incoming()
